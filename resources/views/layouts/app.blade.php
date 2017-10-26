@@ -83,6 +83,13 @@
     </div>
 
     <!-- Scripts -->
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js7bootstrap.min.js"></script>>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/js/material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.3.0/css/ripples.min.js"></script>
+    <script>
+        $.material.init();
+    </script>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
