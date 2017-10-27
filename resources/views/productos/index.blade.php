@@ -11,7 +11,7 @@
 					<td>ID</td>
 					<td>Descripción</td>
 					<td>Precio Unitario</td>
-					<td>ID_Categoria</td>
+					<td>Categoria</td>
 					<td>Estado</td>
 				</tr>
 			</thead>

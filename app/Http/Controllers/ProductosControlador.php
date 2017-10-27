@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Producto;
 
-class ProductoControlador extends Controller
+class ProductosControlador extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class ProductoControlador extends Controller
      */
     public function index()
     {
-        $productos = Producto::all();
-        return view("producto.index", ["producto" => $productos]);
+        $producto = Producto::all();
+        return view("productos.index", ["producto" => $producto]);
     }
 
     /**
