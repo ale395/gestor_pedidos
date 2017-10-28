@@ -8,18 +8,16 @@
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<td>ID</td>
 					<td>Descripción</td>
 					<td>Precio Unitario</td>
 					<td>Categoria</td>
-					<td>Estado</td>
+					<td>Activo</td>
 					<td>Acciones</td>
 				</tr>
 			</thead>
 			<tbody>
 				@foreach ($producto as $product)
 					<tr>
-						<td>{{ $product->id }}</td>
 						<td>{{ $product->nomb_producto}}</td>
 						<td>{{ $product->precio_unitario }}</td>
 						<td>{{ $product->id_categoria }}</td>
