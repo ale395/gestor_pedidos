@@ -17,6 +17,7 @@ class CreateCategoriaProductosTable extends Migration
             $table->increments('id');
             $table->string('nomb_categoria', 50);
             $table->char('estado', 1);
+            $table->timestamps();
         });
     }
 

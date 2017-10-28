@@ -13,6 +13,7 @@
 					<td>Precio Unitario</td>
 					<td>Categoria</td>
 					<td>Estado</td>
+					<td>Acciones</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -23,10 +24,19 @@
 						<td>{{ $product->precio_unitario }}</td>
 						<td>{{ $product->id_categoria }}</td>
 						<td>{{ $product->estado }}</td>
-						<td> Acciones </td>
+						<td>
+							<a href="{{url('/productos/'.$product->id.'/edit')}}" class="btn btn-primary btn-sm">Editar 
+							</a>
+							@include('productos.delete', ['producto' => $product])
+						</td>
 					</tr>
 				@endforeach
 			</tbody>
 		</table>
+	</div>
+	<div class="floating">
+		<a href="{{url('/productos/create')}}" class="btn btn-primary btn-fab">
+			<i class="material-icons">add</i>
+		</a>
 	</div>
 @endsection

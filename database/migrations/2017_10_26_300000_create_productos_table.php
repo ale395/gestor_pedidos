@@ -23,6 +23,7 @@ class CreateProductosTable extends Migration
 
             $table->decimal('precio_unitario', 12, 2);
             $table->char('estado', 1);
+            $table->timestamps();
         });
     }
 
