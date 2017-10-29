@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Producto;
 
+use App\Categoria;
+
+use App\Http\Requests\CrearProductosRequest;
+
 class ProductosControlador extends Controller
 {
     /**
@@ -16,7 +20,8 @@ class ProductosControlador extends Controller
     public function index()
     {
         $producto = Producto::all();
-        return view("productos.index", ["producto" => $producto]);
+        $categorias = Categoria::all();
+        return view("productos.index", compact("categorias"), ["producto" => $producto]);
     }
 
     /**
@@ -28,7 +33,8 @@ class ProductosControlador extends Controller
     {
         
         $producto = new Producto;
-        return view("productos.create", ["producto" => $producto]);
+        $categorias = Categoria::all();
+        return view("productos.create", compact("categorias"), ["producto" => $producto]);
     }
 
     /**
@@ -37,14 +43,13 @@ class ProductosControlador extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CrearProductosRequest $request)
     {
         $producto = new Producto;
 
         $producto->nomb_producto = $request->nomb_producto;
         $producto->precio_unitario = $request->precio_unitario;
         $producto->id_categoria = $request->id_categoria;
-        $producto->estado = $request->estado;
 
         if($producto->save()){
             return redirect("/productos");
@@ -74,7 +79,8 @@ class ProductosControlador extends Controller
     public function edit($id)
     {
         $producto = Producto::find($id);
-        return view("productos.edit", ["producto" => $producto]);
+        $categorias = Categoria::all();
+        return view("productos.edit", compact("categorias"), ["producto" => $producto]);
     }
 
     /**
@@ -84,14 +90,13 @@ class ProductosControlador extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CrearProductosRequest $request, $id)
     {
         $producto = Producto::find($id);
 
         $producto->nomb_producto = $request->nomb_producto;
         $producto->precio_unitario = $request->precio_unitario;
         $producto->id_categoria = $request->id_categoria;
-        $producto->estado = $request->estado;
 
         if($producto->save()){
             return redirect("/productos");

@@ -19,10 +19,9 @@ class CreateProductosTable extends Migration
             $table->string('nomb_producto', 50);
 
             $table->integer('id_categoria')->unsigned();
-            $table->foreign('id_categoria')->references('id')->on('categoria_productos');
+            $table->foreign('id_categoria')->references('id')->on('categorias');
 
             $table->decimal('precio_unitario', 12, 2);
-            $table->char('estado', 1);
             $table->timestamps();
         });
     }
@@ -34,6 +33,6 @@ class CreateProductosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('producto');
+        Schema::dropIfExists('productos');
     }
 }

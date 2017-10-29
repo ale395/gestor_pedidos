@@ -11,7 +11,6 @@
 					<td>Descripción</td>
 					<td>Precio Unitario</td>
 					<td>Categoria</td>
-					<td>Activo</td>
 					<td>Acciones</td>
 				</tr>
 			</thead>
@@ -20,8 +19,8 @@
 					<tr>
 						<td>{{ $product->nomb_producto}}</td>
 						<td>{{ $product->precio_unitario }}</td>
-						<td>{{ $product->id_categoria }}</td>
-						<td>{{ $product->estado }}</td>
+						<!--<td>{{ $product->id_categoria }}</td>-->
+						<td>{{ $product->get_categoria($product->id_categoria) }}</td>
 						<td>
 							<a href="{{url('/productos/'.$product->id.'/edit')}}" class="btn btn-primary btn-sm">Editar 
 							</a>

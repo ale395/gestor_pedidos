@@ -20,3 +20,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('productos', 'ProductosControlador');
+
+Route::get('/categorias', ['as' => 'categorias', 'uses' => 'CategoriasControlador@index']);
