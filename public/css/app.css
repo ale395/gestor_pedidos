@@ -1,0 +1,44 @@
+.no-padding {
+  padding: 0px;
+}
+
+.big-padding {
+  padding: 30px;
+}
+
+.blue-grey {
+  background-color: #37474f;
+}
+
+.white {
+  background-color: white;
+}
+
+.white-text {
+  color: white;
+}
+
+.red-text {
+  color: #c83232;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.no-margin {
+  margin: 0px;
+}
+
+.floating {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  z-indez: 100;
+}
+
+/*# sourceMappingURL=app.css.map */
