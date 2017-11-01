@@ -57,20 +57,56 @@ class PedidoControlador extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PedidoFormRequest $request)
     {
-        $producto = new Producto;
+        try { 
+                $pedido = new Pedido;
+		        $pedido ->id_pedido = $request->get('id_pedido');
+        		$pedido ->cliente = $request->get('cliente');
 
-        $producto->nomb_producto = $request->nomb_producto;
-        $producto->precio_unitario = $request->precio_unitario;
-        $producto->id_categoria = $request->id_categoria;
-        $producto->estado = $request->estado;
+        		$mytime = Carbon::now(America/Argentina);
+        		$pedido -> fecha = $mytime->toDateTimeString();
+        		$pedido -> save()
+				
+				$id_producto = $request->get('id_producto');
+        		$cantidad = $request->get('cantidad');
+				$precio_unitario ->= $request->get('precio_unitario');
+        		$pedido ->cliente = $request->get('cliente');
 
-        if($producto->save()){
-            return redirect("/productos");
-        }else{
-            return view("productos.create", ["producto" => $producto]);
+        		$cont = 0;
+
+
+				/*
+				 'nro_detalle',
+    			 'id_producto',
+    			 'precio_unitario',
+    			 'cantidad',
+    			 'subtotal'
+
+				*/
+        		while ( $cont < count($id_producto)) {
+        				$detalle = new DetallePedido;
+				        $detalle->id_pedido = $pedido->id_pedido;
+        				$detalle->id_producto = $id_producto[$con$t];
+        				$detalle->precio_unitario = $precio_unitario[$cont];
+        				$detalle->cantidad = $cantidad[$cont];
+        				$detalle->save(); 
+
+        				$cont=$cont+1;
+        			}	
+				/* 
+		        if($producto->save()){
+		            return redirect("/productos");
+		        }else{
+		            return view("productos.create", ["producto" => $producto]);
+		        }
+		        */	
+        
+        } catch (Exception $e) {
+        	
         }
+
+        return redirect("/pedido")
 
     }
 

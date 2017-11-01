@@ -24,7 +24,7 @@ class PedidoFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'cliente' => 'required', 
+            //'cliente' => 'required', 
             'num_pedido' => 'max:7',
             'id_producto' => 'required',
             'precio_unitario' => 'required',
