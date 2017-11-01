@@ -34,10 +34,6 @@
         </select>
     </div>
 
-	<div class="form-group">
-		{{Form::text('estado', $producto->estado, ['class' => 'form-control', 'placeholder' => 'Estado'])}}
-	</div>
-
 	<div class="form-group text-right">
 		<a href="{{url('/productos')}}">Regresar al listado de Productos</a>
 		<input type="submit" value="enviar" class="btn btn-success">

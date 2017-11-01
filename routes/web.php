@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -21,4 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('productos', 'ProductosControlador');
 
-Route::get('/categorias', ['as' => 'categorias', 'uses' => 'CategoriasControlador@index']);
+Route::resource('categorias', 'CategoriasControlador');
+
+Route::resource('users', 'UsersControlador');
+
+Route::get('/categorias', ['as' => 'categorias', 'uses' => 'CategoriasControlador2@index']);
