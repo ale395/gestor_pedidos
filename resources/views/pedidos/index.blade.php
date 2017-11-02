@@ -1,14 +1,14 @@
 @extends("layouts.app");
 
 @section("content")
- <div class="big-padding text-center blue grey green-text">
- 	<h1>Pedidos </h1>
- </div>
- <div class="container"> 
+<div class="big-padding text-center blue grey green-text">
+	<h1>Pedidos </h1>
+</div>
+<div class="container"> 
  	<table class="table table-bordered"> 
  		<thead>
  			<tr>
- 				<td>Num Pedido</td>
+ 				<td>ID Pedido</td>
  				<td>Fecha Pedido</td>
  				<td>Cliente</td>
  				<td>Total</td>
@@ -18,16 +18,23 @@
  		<tbody>
  			@foreach ($pedidos as $pedidos)
  				<tr>
- 					<td>{{ $pedidos->num_pedido }}</td>
+ 					<td>{{ $pedidos->id_pedido }}</td>
  					<td>{{ $pedidos->fecha }}</td>
  					<td>{{ $pedidos->cliente }}</td>
  					<td>{{ $pedidos->total }}</td>
- 					<td> Acciones </td>
+ 					<td> 
+						<a href="{{url('/pedidos/'.$pedidos->id_pedido.'/edit')}}" class="btn btn-primary btn-sm">Editar 
+						</a>
+						@include('pedidos.delete', ['pedidos' => $pedidos])
+  					</td>
  				</tr>
  			@endforeach 
  		</tbody>
  	</table>
- </div>
-
-
+</div>
+<div class="floating">
+	<a href="{{url('/productos/create')}}" class="btn btn-primary btn-fab">
+		<i class="material-icons">add</i>
+	</a>
+</div>
 @endsection

@@ -66,12 +66,13 @@ class PedidoControlador extends Controller
 
         		$mytime = Carbon::now(America/Argentina);
         		$pedido -> fecha = $mytime->toDateTimeString();
-        		$pedido -> save()
+        		$pedido -> estado = 'A';
+        		$pedido -> save();
 				
 				$id_producto = $request->get('id_producto');
         		$cantidad = $request->get('cantidad');
-				$precio_unitario ->= $request->get('precio_unitario');
-        		$pedido ->cliente = $request->get('cliente');
+				$precio_unitario -> $request->get('precio_unitario');
+        		$pedido -> $request->get('cliente');
 
         		$cont = 0;
 
@@ -87,7 +88,7 @@ class PedidoControlador extends Controller
         		while ( $cont < count($id_producto)) {
         				$detalle = new DetallePedido;
 				        $detalle->id_pedido = $pedido->id_pedido;
-        				$detalle->id_producto = $id_producto[$con$t];
+        				$detalle->id_producto = $id_producto[$cont];
         				$detalle->precio_unitario = $precio_unitario[$cont];
         				$detalle->cantidad = $cantidad[$cont];
         				$detalle->save(); 
@@ -106,7 +107,7 @@ class PedidoControlador extends Controller
         	
         }
 
-        return redirect("/pedido")
+        return redirect("/pedidos");
 
     }
 
@@ -118,7 +119,15 @@ class PedidoControlador extends Controller
      */
     public function show($id)
     {
-        //
+        $pedidos = Pedido::where('id_pedido', '=', $id)
+         ->orderBy('id_pedido', 'DESC')
+         ->get();
+    	
+    	$detalles = DetallePedido::where('id_pedido', '=', $id)
+         ->orderBy('id_pedido', 'DESC')
+         ->get();
+
+        return view("pedidos.show", ["pedidos" => $pedidos, "detalles" => $detalles]);
     }
 
     /**
@@ -140,6 +149,8 @@ class PedidoControlador extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    /*
     public function update(Request $request, $id)
     {
         $producto = Producto::find($id);
@@ -155,6 +166,7 @@ class PedidoControlador extends Controller
             return view("productos.edit", ["producto" => $producto]);
         }
     }
+    */  
 
     /**
      * Remove the specified resource from storage.
@@ -164,7 +176,9 @@ class PedidoControlador extends Controller
      */
     public function destroy($id)
     {
-        Producto::destroy($id);
+        $pedido = Pedido::findOrFail($id);
+        $pedido->estado='c';
+        $Pedido->update(); 
         return redirect('/productos');
     }
 }
