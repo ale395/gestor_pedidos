@@ -33,7 +33,7 @@
  	</table>
 </div>
 <div class="floating">
-	<a href="{{url('/productos/create')}}" class="btn btn-primary btn-fab">
+	<a href="{{url('/pedidos/create')}}" class="btn btn-primary btn-fab">
 		<i class="material-icons">add</i>
 	</a>
 </div>
