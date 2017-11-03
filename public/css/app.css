@@ -41,63 +41,180 @@
   z-indez: 100;
 }
 
-
-
-
-
-
-body{
-    background: #8999A8;
-}
-.navbar, .dropdown-menu{
-background:rgba(255,255,255,0.25);
-border: none;
-
+.size-acciones {
+  width: 23%;
 }
 
-.nav>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .dropdown-menu>li>a, .dropdown-menu>li{
-  border-bottom: 3px solid transparent;
-}
-.nav>li>a:focus, .nav>li>a:hover,.nav .open>a, .nav .open>a:focus, .nav .open>a:hover, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
-  border-bottom: 3px solid transparent;
-  background: none;
-}
-.navbar a, .dropdown-menu>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .navbar-toggle{
- color: #fff;
-}
-.dropdown-menu{
-      -webkit-box-shadow: none;
-    box-shadow:none;
+.table-text-center {
+  text-align: center;
 }
 
-.nav li:hover:nth-child(8n+1), .nav li.active:nth-child(8n+1){
-  border-bottom: #C4E17F 3px solid;
-}
-.nav li:hover:nth-child(8n+2), .nav li.active:nth-child(8n+2){
-  border-bottom: #F7FDCA 3px solid;
-}
-.nav li:hover:nth-child(8n+3), .nav li.active:nth-child(8n+3){
-  border-bottom: #FECF71 3px solid;
-}
-.nav li:hover:nth-child(8n+4), .nav li.active:nth-child(8n+4){
-  border-bottom: #F0776C 3px solid;
-}
-.nav li:hover:nth-child(8n+5), .nav li.active:nth-child(8n+5){
-  border-bottom: #DB9DBE 3px solid;
-}
-.nav li:hover:nth-child(8n+6), .nav li.active:nth-child(8n+6){
-  border-bottom: #C49CDE 3px solid;
-}
-.nav li:hover:nth-child(8n+7), .nav li.active:nth-child(8n+7){
-  border-bottom: #669AE1 3px solid;
-}
-.nav li:hover:nth-child(8n+8), .nav li.active:nth-child(8n+8){
-  border-bottom: #62C2E4 3px solid;
+.size-id {
+  width: 10%;
 }
 
-.navbar-toggle .icon-bar{
-    color: #fff;
-    background: #fff;
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #eceeef;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #eceeef;
+}
+
+.table tbody + tbody {
+  border-top: 2px solid #eceeef;
+}
+
+.table .table {
+  background-color: #fff;
+}
+
+.table-sm th,
+.table-sm td {
+  padding: 0.3rem;
+}
+
+.table-bordered {
+  border: 1px solid #eceeef;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #eceeef;
+}
+
+.table-bordered thead th,
+.table-bordered thead td {
+  border-bottom-width: 2px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table-active,
+.table-active > th,
+.table-active > td {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table-hover .table-active:hover {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table-hover .table-active:hover > td,
+.table-hover .table-active:hover > th {
+  background-color: rgba(0, 0, 0, 0.075);
+}
+
+.table-success,
+.table-success > th,
+.table-success > td {
+  background-color: #bdbdbd;
+}
+
+.table-hover .table-success:hover {
+  background-color: #80deea;
+}
+
+.table-hover .table-success:hover > td,
+.table-hover .table-success:hover > th {
+  background-color: #d0e9c6;
+}
+
+.table-info,
+.table-info > th,
+.table-info > td {
+  background-color: #d9edf7;
+}
+
+.table-hover .table-info:hover {
+  background-color: #c4e3f3;
+}
+
+.table-hover .table-info:hover > td,
+.table-hover .table-info:hover > th {
+  background-color: #c4e3f3;
+}
+
+.table-warning,
+.table-warning > th,
+.table-warning > td {
+  background-color: #fcf8e3;
+}
+
+.table-hover .table-warning:hover {
+  background-color: #faf2cc;
+}
+
+.table-hover .table-warning:hover > td,
+.table-hover .table-warning:hover > th {
+  background-color: #faf2cc;
+}
+
+.table-danger,
+.table-danger > th,
+.table-danger > td {
+  background-color: #f2dede;
+}
+
+.table-hover .table-danger:hover {
+  background-color: #ebcccc;
+}
+
+.table-hover .table-danger:hover > td,
+.table-hover .table-danger:hover > th {
+  background-color: #ebcccc;
+}
+
+.thead-inverse th {
+  color: #fff;
+  background-color: #292b2c;
+}
+
+.thead-default th {
+  color: #464a4c;
+  background-color: #eceeef;
+}
+
+.table-inverse {
+  color: #fff;
+  background-color: #292b2c;
+}
+
+.table-inverse th,
+.table-inverse td,
+.table-inverse thead th {
+  border-color: #fff;
+}
+
+.table-inverse.table-bordered {
+  border: 0;
+}
+
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.table-responsive.table-bordered {
+  border: 0;
 }
 
 /*# sourceMappingURL=app.css.map */

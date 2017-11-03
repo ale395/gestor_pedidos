@@ -17,6 +17,6 @@
 
 	<div class="form-group text-right">
 		<a href="{{url('/categorias')}}">Regresar al listado de Categorias</a>
-		<input type="submit" value="enviar" class="btn btn-success">
+		<button class="submit btn btn-success"><i class="fa fa-user-o" aria-hidden="true"></i> Guardar</button>
 	</div>
 {!!Form::close()!!}
