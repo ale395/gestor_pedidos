@@ -4,6 +4,7 @@
 	<div class="big-padding text-center blue-grey white-text">
 		<h1>Categorías</h1>
 	</div>
+	<div><h1></h1></div>
 	<div class="container">
 		<table class="table table-success table-bordered table-hover table-striped table-sm .table-responsive" id="tableCategorias">
 			<thead class="thead-inverse center-block">

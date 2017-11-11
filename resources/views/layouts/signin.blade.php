@@ -21,7 +21,10 @@
 
     <link rel="stylesheet" href="//cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
 
+	<link rel="stylesheet" href="js/jquery.maskedinput.min.js">
+	
     <link href="css/font-awesome.min.css" rel="stylesheet">
+
     <link href="css/app.css" rel="stylesheet">
 
 </head>
@@ -104,13 +107,23 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
+    <script src="//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"></script>
+
     <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 
     <script>
     	$(document).ready(function(){
-    		$('#tableCategorias').DataTable();});
+    		$('#tableCategorias').DataTable({
+    			"language":{"url":"//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"}
+    		});});
     </script>
 
+    <script>
+    	$(document).ready(function(){
+    		$('#tableProductos').DataTable({
+    			"language":{"url":"//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"}
+    		});});
+    </script>
 
     <script>
         $.material.init();
