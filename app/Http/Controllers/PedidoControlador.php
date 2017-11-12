@@ -46,7 +46,7 @@ class PedidoControlador extends Controller
         //a la app pueda hacer pedidos (?)
         $pedidos = new Pedido;
         $productos = DB::table('productos as p')
-         ->select(DB::raw('CONCAT(p.id, " ", p.nomb_producto) AS Producto'), 'p.id')
+         ->select(DB::raw('CONCAT(p.id, " ", p.nomb_producto) AS producto'), 'p.id')
          ->get();
         return view("pedidos.create", ["pedidos" => $pedidos, "productos" => $productos]);
     }
@@ -61,7 +61,7 @@ class PedidoControlador extends Controller
     {
         try { 
                 $pedido = new Pedido;
-		        $pedido ->id_pedido = $request->get('id_pedido');
+		        $pedido ->num_pedido = $request->get('num_pedido');
         		$pedido ->cliente = $request->get('cliente');
 
         		$mytime = Carbon::now(America/Argentina);
@@ -72,7 +72,7 @@ class PedidoControlador extends Controller
 				$id_producto = $request->get('id_producto');
         		$cantidad = $request->get('cantidad');
 				$precio_unitario -> $request->get('precio_unitario');
-        		$pedido -> $request->get('cliente');
+        		
 
         		$cont = 0;
 

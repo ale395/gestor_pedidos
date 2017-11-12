@@ -8,7 +8,7 @@
  	<table class="table table-bordered"> 
  		<thead>
  			<tr>
- 				<td>ID Pedido</td>
+ 				<td>Num Pedido</td>
  				<td>Fecha Pedido</td>
  				<td>Cliente</td>
  				<td>Total</td>
@@ -19,7 +19,7 @@
  		<tbody>
  			@foreach ($pedidos as $pedidos)
  				<tr>
- 					<td>{{ $pedidos->id_pedido }}</td>
+ 					<td>{{ $pedidos->num_pedido }}</td>
  					<td>{{ $pedidos->fecha }}</td>
  					<td>{{ $pedidos->cliente }}</td>
  					<td>{{ $pedidos->estado }}</td>

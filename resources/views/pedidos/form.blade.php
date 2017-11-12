@@ -12,7 +12,7 @@
 
 	<div class="form-group">
 		<label>Num. Pedido</label>
-		{{Form::text('id_pedido', $pedidos->id_pedido, ['class' => 'form-control', 'placeholder' => 'Num. del Pedido'])}}
+		{{Form::text('num_pedido', $pedidos->num_pedido, ['class' => 'form-control', 'placeholder' => 'Num. del Pedido'])}}
 	</div>
 
 	<!-- 	
@@ -30,18 +30,6 @@
 			<input type="text" name="fecha" id="datepicker"></p>
 		</div>
 	</div>
-	
-
- 	<!--
- 	<div class="input-group date" data-provide="datepicker">
-    	<label>Fecha</label>
-    	<input type="text" class="form-group">
-    	<div class="input-group-addon">
-    		<span class="glyphicon glyphicon-th"></span>
-    	</div>
-	</div>
-	-->
-
 
 	<div class="form-group">
 		<label>Cliente</label>
@@ -50,16 +38,37 @@
 
 	<div class="panel panel-primary">
 		<div class="panel-body">
-			<div class = "col-lg-12 col-sm-12 col-md-12 col-xs-12">
+			<div class = "col-lg-3 col-sm-3 col-md-3 col-xs-12">
 				<div class="form-group">
 					<label>Articulo</label>
-					<select name="pid_articulo" class="form-control" id="pid_articulo">
+					<select name="pid_articulo" class="form-control selectpicker" id="pid_articulo" data-live-search="true">
 						@foreach($productos as $productos)
+							<option value="{{$productos->id}}" >
+								{{$productos->producto}}
+							</option>						
+						@endforeach	
 					</select>	
 				</div>
 			</div>
+			<div class = "col-lg-3 col-sm-3 col-md-3 col-xs-12">	
+				<div class="form-group">
+					<label>Cantidad</label>
+					<input type="number" name="pcantidad" id="pcantidad" class="form-control" placeholder="cantidad"></input>
+				</div>
+			</div>
+			<div class = "col-lg-3 col-sm-3 col-md-3 col-xs-12">	
+				<div class="form-group">
+					<label>Prec. Unit.</label>
+					<input type="number" name="pprecio_unitario" id="pprecio_unitario" class="form-control" placeholder="cantidad"></input>
+				</div>
+			</div>
+			<div class = "col-lg-3 col-sm-3 col-md-3 col-xs-12">	
+				<div class="form-group">
+					<label>Total Artic.</label>
+					
+				</div>
+			</div>
 		</div>
-	
 	</div>
 
 	<div class="form-group">
