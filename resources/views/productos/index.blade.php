@@ -1,6 +1,6 @@
 @extends("layouts.signin")
 
-@section("content")
+@section("content") 
 	<div class="big-padding text-center blue-grey white-text">
 		<h1>Productos</h1>
 	</div>
