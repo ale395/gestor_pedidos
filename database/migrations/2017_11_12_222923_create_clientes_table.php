@@ -18,8 +18,8 @@ class CreateClientesTable extends Migration
             $table->increments('id');
             $table->string('nombre', 50);
             $table->string('apellido', 50);
-            $table->integer ('cedula');
-            $table->integer ('telefono');
+            $table->string ('cedula',50);
+            $table->string ('telefono',50);
             $table->string('direccion', 100);
             $table->string('correo', 100);
             $table->timestamps();

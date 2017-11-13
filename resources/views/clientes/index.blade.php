@@ -12,7 +12,7 @@
 					<th class="size-id table-text-center">Id</th>
 					<th class="table-text-center">Nombre</th>
 					<th class="table-text-center">Apellido</th>
-					<th class="table-text-center">Cedula</th>
+					<th class="table-text-center">Nro de Documento</th>
 					<th class="table-text-center">Telefono</th>
 					<th class="table-text-center">Direccion</th>
 				    <th class="table-text-center">Correo</th>

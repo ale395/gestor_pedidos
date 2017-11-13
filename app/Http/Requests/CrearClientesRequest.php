@@ -27,8 +27,8 @@ class CrearClientesRequest extends FormRequest
         return [
             'nombre' => 'required',
             'apellido' => 'required',
-            'cedula' => 'required|numeric',
-            'telefono' => 'required|numeric',
+            'cedula' => 'required',
+            'telefono' => 'required',
             'direccion' => 'required',
             'correo' => 'required',
         ];

@@ -21,17 +21,17 @@
 	</div>
 
 	<div class="form-group">
-		<label><h5>Cedula o RUC</h5></label>
-		{{Form::number('cedula', $clientes->cedula, ['class' => 'form-control', 'placeholder' => 'Cedula de identidad o ruc sin guion'])}}
+		<label><h5>Nro de documento</h5></label>
+		{{Form::text('cedula', $clientes->cedula, ['class' => 'form-control', 'placeholder' => 'Cedula de identidad, RUC o pasaporte'])}}
 	</div>
 
 	<div class="form-group">
 		<label><h5>Telefono</h5></label>
-		{{Form::number('telefono', $clientes->telefono, ['class' => 'form-control', 'placeholder' => 'Telefono o celular del cliente'])}}
+		{{Form::text('telefono', $clientes->telefono, ['class' => 'form-control', 'placeholder' => 'Telefono o celular del cliente'])}}
 	</div>
 
 	<div class="form-group">
-		<label><h5>direccion</h5></label>
+		<label><h5>Direccion</h5></label>
 		{{Form::text('direccion', $clientes->direccion, ['class' => 'form-control', 'placeholder' => 'Lugar donde vive el cliente'])}}
 	</div>
 
@@ -41,7 +41,7 @@
 	</div>
 
 	<div class="form-group text-right">
-		<a href="{{url('/clientes')}}">Regresar al clientes</a>
+		<a href="{{url('/clientes')}}">Regresar a clientes</a>
 		<input type="submit" value="enviar" class="btn btn-success">
 	</div>
 {!!Form::close()!!}
