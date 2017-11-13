@@ -11,8 +11,8 @@
  				<td>Num Pedido</td>
  				<td>Fecha Pedido</td>
  				<td>Cliente</td>
- 				<td>Total</td>
  				<td>Estado</td>
+ 				<td>Total</td>
  				<td>Acciones</td>
   			</tr>
  		</thead>
@@ -25,7 +25,7 @@
  					<td>{{ $pedidos->estado }}</td>
  					<td>{{ $pedidos->total }}</td>
  					<td> 
-						<a href="{{url('/pedidos/'.$pedidos->id_pedido.'/edit')}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Modificar</a>
+						<a href="{{url('/pedidos/'.$pedidos->id_pedido.'/show')}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Detalles</a>
 
 						@include('pedidos.delete', ['pedidos' => $pedidos ])					
   					</td> 

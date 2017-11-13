@@ -64,20 +64,20 @@ class PedidoControlador extends Controller
     {
         try { 
                 $pedido = new Pedido;
-		        $pedido ->num_pedido = $request->get('num_pedido');
-        		$pedido ->cliente = $request->get('cliente');
-        		$pedido -> fecha = date("Y-m-d", strtotime($request->get('fecha')));
-        		$pedido -> estado = 'A';
-                $pedido -> total = 0;
-                $pedido -> save();
+		        $pedido->num_pedido = $request->get('num_pedido');
+        		$pedido->cliente = $request->get('cliente');
+        		$pedido->fecha = date("Y-m-d", strtotime($request->get('fecha')));
+        		$pedido->estado = 'A';
+                $pedido->total = 0;
+                $pedido-> save();
 				
 				$id_producto = $request->get('id_producto');
         		$cantidad = $request->get('cantidad');
 				$precio_unitario = $request->get('precio_unitario');
                 $subtotal = $request->get('subtotal');
-        		
-
+       		
         		$cont = 0;
+                $total_cabecera=0;
 
 
 				/*
@@ -87,18 +87,25 @@ class PedidoControlador extends Controller
     			 'cantidad',
     			 'subtotal'
 				*/
-        		while ( $cont < count($id_producto)) {
-        				$detalle = new DetallePedido;
-				        $detalle->id_pedido = $pedido->id_pedido;
-        				$detalle->id_producto = $id_producto[$cont];
-        				$detalle->precio_unitario = $precio_unitario[$cont];
-        				$detalle->cantidad = $cantidad[$cont];
-                        $detalle->subtotal = $subtotal[$cont];
-                        
-        				$detalle->save(); 
+                while ($cont < count($id_producto)) {
+                    $detalle = new DetallePedido;
+                    $detalle->id_pedido = $pedido->id_pedido;
+                    $detalle->id_producto = $id_producto[$cont];
+                    $detalle->precio_unitario = $precio_unitario[$cont];
+                    $detalle->cantidad = $cantidad[$cont];
+                    $detalle->subtotal = $precio_unitario[$cont]*$cantidad[$cont];
+                    $total_cabecera = $total_cabecera +  ($precio_unitario[$cont]*$cantidad[$cont]);                    
+                    
+                    $detalle->save(); 
 
-        				$cont=$cont+1;
-        			}	
+                    $cont=$cont+1;
+
+
+                }
+
+                $pedido = Pedido::findOrFail($pedido->id_pedido);
+                $pedido->total= $total_cabecera ;
+                $Pedido->update(); 	
 				/* 
 		        if($producto->save()){
 		            return redirect("/productos");
@@ -123,13 +130,11 @@ class PedidoControlador extends Controller
      */
     public function show($id)
     {
-        $pedidos = Pedido::where('id_pedido', '=', $id)
-         ->orderBy('id_pedido', 'DESC')
-         ->get();
-    	
-    	$detalles = DetallePedido::where('id_pedido', '=', $id)
-         ->orderBy('id_pedido', 'DESC')
-         ->get();
+        $pedidos = DB::table('pedidos as p')
+            ->join('cliente as c', 'p.cliente', '=', 'c.id')
+            ->join('`pedidos_detalle as d', 'p.id_pedido', '=', 'd.id_pedido')
+            ->select('p.id_pedido', 'p.fecha', 'c.nomnbre', 'p.num_pedido', 'p.estado')
+            ->where('p.id_pedido', '=',$id);
 
         return view("pedidos.show", ["pedidos" => $pedidos, "detalles" => $detalles]);
     }
@@ -142,8 +147,8 @@ class PedidoControlador extends Controller
      */
     public function edit($id)
     {
-        $producto = Producto::find($id);
-        return view("productos.edit", ["producto" => $producto]);
+        $pedidos = Pedido::find($id);
+        return view("pedidos.edit", ["pedidos" => $pedidos]);
     }
 
     /**
@@ -154,23 +159,17 @@ class PedidoControlador extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    /*
+
     public function update(Request $request, $id)
     {
-        $producto = Producto::find($id);
 
-        $producto->nomb_producto = $request->nomb_producto;
-        $producto->precio_unitario = $request->precio_unitario;
-        $producto->id_categoria = $request->id_categoria;
-        $producto->estado = $request->estado;
+        $pedido = Pedido::findOrFail($id);
+        $pedido->estado='C';
+        $Pedido->update(); 
+        return redirect('/pedidos');
 
-        if($producto->save()){
-            return redirect("/productos");
-        }else{
-            return view("productos.edit", ["producto" => $producto]);
-        }
     }
-    */  
+
 
     /**
      * Remove the specified resource from storage.
@@ -180,9 +179,8 @@ class PedidoControlador extends Controller
      */
     public function destroy($id)
     {
-        $pedido = Pedido::findOrFail($id);
-        $pedido->estado='c';
-        $Pedido->update(); 
-        return redirect('/productos');
+        Pedido::destroy($id);
+        return redirect('/pedidos');
+
     }
 }
