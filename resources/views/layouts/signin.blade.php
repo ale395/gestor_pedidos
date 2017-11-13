@@ -71,8 +71,8 @@
 	          <li class="nav-item dropdown">
 	            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-basket" aria-hidden="true"></i> Pedidos</a>
 	            <div class="dropdown-menu" aria-labelledby="dropdown01">
-	              <a class="dropdown-item" href="#"><i class="fa fa-list" aria-hidden="true"></i> Lista de Pedidos</a>
-	              <a class="dropdown-item" href="#"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Crear Pedido</a>
+	              <a class="dropdown-item" href="{{ url('/pedidos') }}"><i class="fa fa-list" aria-hidden="true"></i> Lista de Pedidos</a>
+	              <a class="dropdown-item" href="{{ url('/pedidos/create') }}"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Crear Pedido</a>
 	            </div>
 	          </li>
 	          <li class="nav-item dropdown">

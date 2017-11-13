@@ -33,7 +33,16 @@
 
 	<div class="form-group">
 		<label>Cliente</label>
+		<select name="cliente" class="form-control selectpicker" id="cliente" data-live-search="true">
+			@foreach($clientes as $clientes)
+				<option value="{{$clientes->id}}" >
+					{{$clientes->cliente}}
+				</option>						
+			@endforeach
+		</select>
+		<!--
 		{{Form::text('cliente', $pedidos->cliente, ['class' => 'form-control', 'placeholder' => 'id del cliente'])}}
+		-->
 	</div>
 
 	<div class="panel panel-primary">
@@ -43,7 +52,7 @@
 					<label>Articulo</label>
 					<select name="pid_producto" class="form-control selectpicker" id="pid_producto" data-live-search="true">
 						@foreach($productos as $productos)
-							<option value="{{$productos->id}}" >
+							<option value="{{$productos->id_producto}}" >
 								{{$productos->producto}}
 							</option>						
 						@endforeach	
@@ -111,7 +120,7 @@
 	//agregamos al detalle
 	function agregar()
 	{
-		id_producto=$("#pid_f").val();
+		id_producto=$("#pid_producto").val();
 		articulo=$("#pid_producto option:selected").text();
 		cantidad=$("#pcantidad").val();
 		precio_unitario=$("#pprecio_unitario").val();
@@ -123,7 +132,7 @@
 
 			//solo Dios sabe que hace esto, che ajaponte
 			//mentira, armamos el html para cargar nuestra tabla del detalle
-			var fila =' <tr class="selected" id"fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td><td><input type="hidden" name="id_producto[]" value="'+id_producto+'">'+articulo+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"></td><td><input type="number" name="precio_unitario[]" value="'+precio_unitario +'"></td><td>'+subtotal[cont]+'</td></tr>';
+			var fila =' <tr class="selected" id"fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td><td><input type="hidden" name="id_producto[]" value="'+id_producto+'">'+articulo+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"></td><td><input type="number" name="precio_unitario[]" value="'+precio_unitario +'"></td><td name="subtotal[]" value="'+subtotal[cont]+'">'+subtotal[cont]+'</td></tr>';
 			cont++;
 
 			limpiar();
