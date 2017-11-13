@@ -29,4 +29,8 @@ Route::resource('users', 'UsersControlador');
 
 Route::resource('pedidos', 'PedidoControlador');
 
+Route::resource('home', 'ChartCircleControlador');
+
+//Route::resource('home', 'ChartColumnControlador');
+
 Route::get('/categorias', ['as' => 'categorias', 'uses' => 'CategoriasControlador2@index']);
