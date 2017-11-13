@@ -41,7 +41,7 @@
 			<div class = "col-lg-4 col-sm-4 col-md-4 col-xs-12">
 				<div class="form-group">
 					<label>Articulo</label>
-					<select name="pid_articulo" class="form-control selectpicker" id="pid_articulo" data-live-search="true">
+					<select name="pid_producto" class="form-control selectpicker" id="pid_producto" data-live-search="true">
 						@foreach($productos as $productos)
 							<option value="{{$productos->id}}" >
 								{{$productos->producto}}
@@ -111,19 +111,19 @@
 	//agregamos al detalle
 	function agregar()
 	{
-		idarticulo=$("#pid_articulo").val();
-		articulo=$("#pid_articulo option:selected").text();
+		id_producto=$("#pid_f").val();
+		articulo=$("#pid_producto option:selected").text();
 		cantidad=$("#pcantidad").val();
 		precio_unitario=$("#pprecio_unitario").val();
 
-		if(idarticulo!="" && cantidad!="" && cantidad>0 && precio_unitario!="")
+		if(id_producto!="" && cantidad!="" && cantidad>0 && precio_unitario!="")
 		{
 			subtotal[cont] = cantidad*precio_unitario;
 			total=total+subtotal[cont];
 
 			//solo Dios sabe que hace esto, che ajaponte
 			//mentira, armamos el html para cargar nuestra tabla del detalle
-			var fila =' <tr class="selected" id"fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td><td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"></td><td><input type="number" name="precio_unitario[]" value="'+precio_unitario +'"></td><td>'+subtotal[cont]+'</td></tr>';
+			var fila =' <tr class="selected" id"fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td><td><input type="hidden" name="id_producto[]" value="'+id_producto+'">'+articulo+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"></td><td><input type="number" name="precio_unitario[]" value="'+precio_unitario +'"></td><td>'+subtotal[cont]+'</td></tr>';
 			cont++;
 
 			limpiar();
@@ -160,7 +160,7 @@
 	{
 		total=total-subtotal[index];
 		$("#total").html("GS. "+total);
-		$("#fila" + index).remove();
+		$("#fila"+index).remove();
 		evaluar();
 	}
 

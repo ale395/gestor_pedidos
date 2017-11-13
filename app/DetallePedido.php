@@ -10,7 +10,7 @@ class DetallePedido extends Model
     protected $table = 'pedidos_detalle';
 
     //primary key de la tabla con la que trabajaremos
-    protected $primaryKey = 'id_pedido'
+    protected $primaryKey = 'id_pedido';
 
 
     //solo Dios sabe para que es esto, yo hago nomas

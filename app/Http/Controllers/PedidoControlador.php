@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facade\Redirect;  
 use Illuminate\Support\Facade\Input;
-use App\Http\Request\PedidoFormRequest;
+use App\Http\Requests\PedidoFormRequest;
 use App\Pedido;
 use App\DetallePedido;
 use App\Producto;
@@ -63,15 +63,14 @@ class PedidoControlador extends Controller
                 $pedido = new Pedido;
 		        $pedido ->num_pedido = $request->get('num_pedido');
         		$pedido ->cliente = $request->get('cliente');
-
-        		$mytime = Carbon::now(America/Argentina);
-        		$pedido -> fecha = $mytime->toDateTimeString();
+        		$pedido -> fecha = date("Y-m-d", strtotime($request->get('fecha')));
         		$pedido -> estado = 'A';
-        		$pedido -> save();
+                $pedido -> total = 0;
+                $pedido -> save();
 				
 				$id_producto = $request->get('id_producto');
         		$cantidad = $request->get('cantidad');
-				$precio_unitario -> $request->get('precio_unitario');
+				$precio_unitario = $request->get('precio_unitario');
         		
 
         		$cont = 0;
