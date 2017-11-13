@@ -63,12 +63,12 @@
 					</input>
 				</div>
 			</div>
-			<div class = "col-lg-2 col-sm-2 col-md-2 col-xs-12">	
+			<div class = "col-lg-2 col-sm-2 col-md-2 col-xs-12">
 				<button type="button" id="btn_add" class="btn btn-primary">Agregar</button>	
 			</div>
 
 			<div class ="col-lg-12 col-sm-12 col-md-12 col-xs-12">	
-				<table id="detalles" class="table table-stripped table-bordered table-condensed table-hover table-sm .table-responsive">
+				<table id="detalles" class="table table-stripped table-bordered table-condensed table-hover">
 					<thead>
 						<th>Opciones</th>
 						<th>Articulo</th>
@@ -81,10 +81,9 @@
 						<th></th>
 						<th></th>
 						<th></th>
-						<th><h4 id="total">S/. 0.00</h4></th>				
+						<th><h4 id="total">Gs. 0.00</h4></th>				
 					</tfoot>
 					<tbody>
-						
 					</tbody>
 				</table>
 			</div>
@@ -109,6 +108,7 @@
 	total=0;      
 	subtotal=[];
 
+	//agregamos al detalle
 	function agregar()
 	{
 		idarticulo=$("#pid_articulo").val();
@@ -119,17 +119,31 @@
 		if(idarticulo!="" && cantidad!="" && cantidad>0 && precio_unitario!="")
 		{
 			subtotal[cont] = cantidad*precio_unitario;
-			tota=total+subtotal[cont];
+			total=total+subtotal[cont];
 
-			var fila =' <tr class="selected" id"fila '+cont+'" > <td></td> </tr>';
+			//solo Dios sabe que hace esto, che ajaponte
+			//mentira, armamos el html para cargar nuestra tabla del detalle
+			var fila =' <tr class="selected" id"fila'+cont+'"><td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td><td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+articulo+'</td><td><input type="number" name="cantidad[]" value="'+cantidad+'"></td><td><input type="number" name="precio_unitario[]" value="'+precio_unitario +'"></td><td>'+subtotal[cont]+'</td></tr>';
+			cont++;
+
+			limpiar();
+			$("#total").html("Gs. " + total);
+			evaluar();
+			$('#detalles').append(fila);  
+		}
+		else 
+		{
+			alert("Error al ingresar el producto tekaka");
 		}
 	}
 
+	//limpiamos los campos del detalle
 	function limpiar() {
 		$("#pcantidad").val("");
 		$("#pprecio_unitario").val("");				
 	}
 
+	//evaluamos si existe alguna linea de detalle para evitar guardar registros sin detalle
 	function evaluar() {
 		if (total > 0) 
 		{
@@ -141,5 +155,24 @@
 		}
 	}
 
+	//eliminamos del detalle
+	function eliminar(index)
+	{
+		total=total-subtotal[index];
+		$("#total").html("GS. "+total);
+		$("#fila" + index).remove();
+		evaluar();
+	}
+
 </script>
 @endpush
+
+<!---hice para ver donde puta estaba el error de mi html
+<tr class="selected" id"fila'+cont+'">
+	<td><button type="button" class="btn btn-warning" onclick="eliminar('+cont+')">X</button></td>
+	<td><input type="hidden" name="idarticulo[]" value="'+idarticulo+'">'+idarticulo+'</td>
+	<td><input type="number" name="cantidad[]" value="'+cantidad+'"></td>
+	<td><input type="number" name="precio_unitario[]" value="'+precio_unitario +'"></td>
+	<td>'+subtotal[cont]+'</td>
+</tr>
+-->
