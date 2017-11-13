@@ -46,9 +46,12 @@ class PedidoControlador extends Controller
         //a la app pueda hacer pedidos (?)
         $pedidos = new Pedido;
         $productos = DB::table('productos as p')
-         ->select(DB::raw('CONCAT(p.id, " ", p.nomb_producto) AS producto'), 'p.id')
+         ->select(DB::raw('CONCAT(p.id, " ", p.nomb_producto) AS producto'), 'p.id as id_producto')
          ->get();
-        return view("pedidos.create", ["pedidos" => $pedidos, "productos" => $productos]);
+        $clientes = DB::table('clientes as p')
+         ->select(DB::raw('CONCAT(p.cedula, " ", p.nombre, " ", p.apellido) AS cliente'), 'p.id')
+         ->get(); 
+        return view("pedidos.create", ["pedidos" => $pedidos, "productos" => $productos, "clientes" => $clientes]);
     }
 
     /**
@@ -71,6 +74,7 @@ class PedidoControlador extends Controller
 				$id_producto = $request->get('id_producto');
         		$cantidad = $request->get('cantidad');
 				$precio_unitario = $request->get('precio_unitario');
+                $subtotal = $request->get('subtotal');
         		
 
         		$cont = 0;
@@ -82,7 +86,6 @@ class PedidoControlador extends Controller
     			 'precio_unitario',
     			 'cantidad',
     			 'subtotal'
-
 				*/
         		while ( $cont < count($id_producto)) {
         				$detalle = new DetallePedido;
@@ -90,6 +93,8 @@ class PedidoControlador extends Controller
         				$detalle->id_producto = $id_producto[$cont];
         				$detalle->precio_unitario = $precio_unitario[$cont];
         				$detalle->cantidad = $cantidad[$cont];
+                        $detalle->subtotal = $subtotal[$cont];
+                        
         				$detalle->save(); 
 
         				$cont=$cont+1;
