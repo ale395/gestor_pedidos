@@ -55,7 +55,7 @@
 	          <li class="nav-item dropdown">
 	            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> Clientes</a>
 	            <div class="dropdown-menu" aria-labelledby="dropdown01">
-	              <a class="dropdown-item" href="#"><i class="fa fa-list" aria-hidden="true"></i> Lista de Clientes</a>
+	              <a class="dropdown-item" href="{{ url('/clientes') }}"><i class="fa fa-list" aria-hidden="true"></i> Lista de Clientes</a>
 	              <a class="dropdown-item" href="#"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Crear Cliente</a>
 	            </div>
 	          </li>
@@ -110,6 +110,13 @@
     <script src="//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"></script>
 
     <script src="//cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('#tableClientes').DataTable({
+                "language":{"url":"//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"}
+            });});
+    </script>
 
     <script>
     	$(document).ready(function(){
