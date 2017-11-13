@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Cliente;
 
 class Pedido extends Model
 {
@@ -26,4 +27,10 @@ class Pedido extends Model
 
     protected $guarded = [
     ];
+
+    public function get_cliente($id)
+    {
+        $cliente = Cliente::find($id);
+        return $cliente->nombre .' ' .$cliente->apellido;
+    }   
 }

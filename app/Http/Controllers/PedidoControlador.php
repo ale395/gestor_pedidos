@@ -162,7 +162,7 @@ class PedidoControlador extends Controller
     public function destroy($id)
     {
         $pedido = Pedido::findOrFail($id);
-        $pedido->estado='C';
+        $pedido->estado='R';
         $pedido->update(); 
         return redirect('/pedidos');
     }
