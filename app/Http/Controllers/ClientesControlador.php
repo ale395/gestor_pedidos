@@ -27,7 +27,8 @@ class ClientesControlador extends Controller
      */
     public function create()
     {
-        //
+              $clientes = new Cliente;
+        return view("clientes.create", ["clientes" => $clientes]);
     }
 
     /**

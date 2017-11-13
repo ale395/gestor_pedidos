@@ -56,7 +56,7 @@
 	            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> Clientes</a>
 	            <div class="dropdown-menu" aria-labelledby="dropdown01">
 	              <a class="dropdown-item" href="{{ url('/clientes') }}"><i class="fa fa-list" aria-hidden="true"></i> Lista de Clientes</a>
-	              <a class="dropdown-item" href="#"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Crear Cliente</a>
+	              <a class="dropdown-item" href="{{ url('/clientes/create') }}"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Crear Cliente</a>
 	            </div>
 	          </li>
 	          <li class="nav-item dropdown">
