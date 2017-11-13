@@ -1,4 +1,4 @@
- @extends("layouts.app");
+@extends("layouts.app");
 
 @section("content")
 <div class="big-padding text-center blue grey green-text">
@@ -25,7 +25,7 @@
  					<td>{{ $pedidos->estado }}</td>
  					<td>{{ $pedidos->total }}</td>
  					<td> 
-						<a href="{{url('/pedidos/'.$pedidos->id_pedido.'/show')}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Detalles</a>
+						<a href="{{URL::action('PedidoControlador@show', $pedidos->id_pedido)}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Detalles</a> 						
 
 						@include('pedidos.delete', ['pedidos' => $pedidos ])					
   					</td> 
@@ -40,3 +40,9 @@
 	</a>
 </div>
 @endsection
+
+<!--
+						<a href="{{URL::action('PedidoControlador@show', $pedidos->id_pedido)}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Detalles</a>
+						<a href="{{url('/pedidos/show')}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Detalles</a>
+
+-->

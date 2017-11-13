@@ -105,7 +105,7 @@ class PedidoControlador extends Controller
 
                 $pedido = Pedido::findOrFail($pedido->id_pedido);
                 $pedido->total= $total_cabecera ;
-                $Pedido->update(); 	
+                $pedido->update(); 	
 				/* 
 		        if($producto->save()){
 		            return redirect("/productos");
@@ -131,10 +131,17 @@ class PedidoControlador extends Controller
     public function show($id)
     {
         $pedidos = DB::table('pedidos as p')
-            ->join('cliente as c', 'p.cliente', '=', 'c.id')
-            ->join('`pedidos_detalle as d', 'p.id_pedido', '=', 'd.id_pedido')
-            ->select('p.id_pedido', 'p.fecha', 'c.nomnbre', 'p.num_pedido', 'p.estado')
-            ->where('p.id_pedido', '=',$id);
+            ->join('clientes as c', 'p.cliente', '=', 'c.id')
+            ->join('pedidos_detalle as d', 'p.id_pedido', '=', 'd.id_pedido')
+            ->select('p.id_pedido', 'p.fecha', DB::raw('CONCAT(c.cedula, " ", c.nombre, " ", c.apellido) AS cliente'), 'p.num_pedido', 'p.estado', 'p.total')
+            ->where('p.id_pedido', '=', $id)
+            ->first();
+
+        $detalles = DB::table('pedidos_detalle as pd')
+            ->join('productos as p', 'p.id', '=', 'pd.id_producto')
+            ->select('p.nomb_producto as producto', 'pd.cantidad', 'pd.precio_unitario', 'pd.subtotal')
+            ->where('pd.id_pedido', '=',$id)
+            ->get();
 
         return view("pedidos.show", ["pedidos" => $pedidos, "detalles" => $detalles]);
     }
@@ -145,31 +152,6 @@ class PedidoControlador extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        $pedidos = Pedido::find($id);
-        return view("pedidos.edit", ["pedidos" => $pedidos]);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-
-
-    public function update(Request $request, $id)
-    {
-
-        $pedido = Pedido::findOrFail($id);
-        $pedido->estado='C';
-        $Pedido->update(); 
-        return redirect('/pedidos');
-
-    }
-
 
     /**
      * Remove the specified resource from storage.
@@ -179,8 +161,9 @@ class PedidoControlador extends Controller
      */
     public function destroy($id)
     {
-        Pedido::destroy($id);
+        $pedido = Pedido::findOrFail($id);
+        $pedido->estado='C';
+        $pedido->update(); 
         return redirect('/pedidos');
-
     }
 }
