@@ -27,4 +27,6 @@ Route::resource('categorias', 'CategoriasControlador');
 
 Route::resource('users', 'UsersControlador');
 
+Route::resource('pedidos', 'PedidoControlador');
+
 Route::get('/categorias', ['as' => 'categorias', 'uses' => 'CategoriasControlador2@index']);

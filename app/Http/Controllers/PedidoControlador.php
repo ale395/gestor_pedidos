@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facade\Redirect;  
 use Illuminate\Support\Facade\Input;
-use App\Http\Request\PedidoFormRequest;
+use App\Http\Requests\PedidoFormRequest;
 use App\Pedido;
 use App\DetallePedido;
 use App\Producto;
@@ -46,7 +46,7 @@ class PedidoControlador extends Controller
         //a la app pueda hacer pedidos (?)
         $pedidos = new Pedido;
         $productos = DB::table('productos as p')
-         ->select(DB::raw('CONCAT(p.id, " ", p.nomb_producto) AS Producto'), 'p.id')
+         ->select(DB::raw('CONCAT(p.id, " ", p.nomb_producto) AS producto'), 'p.id')
          ->get();
         return view("pedidos.create", ["pedidos" => $pedidos, "productos" => $productos]);
     }
@@ -61,18 +61,17 @@ class PedidoControlador extends Controller
     {
         try { 
                 $pedido = new Pedido;
-		        $pedido ->id_pedido = $request->get('id_pedido');
+		        $pedido ->num_pedido = $request->get('num_pedido');
         		$pedido ->cliente = $request->get('cliente');
-
-        		$mytime = Carbon::now(America/Argentina);
-        		$pedido -> fecha = $mytime->toDateTimeString();
+        		$pedido -> fecha = date("Y-m-d", strtotime($request->get('fecha')));
         		$pedido -> estado = 'A';
-        		$pedido -> save();
+                $pedido -> total = 0;
+                $pedido -> save();
 				
 				$id_producto = $request->get('id_producto');
         		$cantidad = $request->get('cantidad');
-				$precio_unitario -> $request->get('precio_unitario');
-        		$pedido -> $request->get('cliente');
+				$precio_unitario = $request->get('precio_unitario');
+        		
 
         		$cont = 0;
 

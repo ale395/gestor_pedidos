@@ -26,7 +26,8 @@ class UsersControlador extends Controller
      */
     public function create()
     {
-        //
+        $user = new User;
+        return view("users.create", ["user" => $user]);
     }
 
     /**
@@ -92,6 +93,7 @@ class UsersControlador extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+        return redirect('/users');
     }
 }

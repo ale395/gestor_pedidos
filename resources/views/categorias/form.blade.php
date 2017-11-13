@@ -11,7 +11,7 @@
 	@endif
 
 	<div class="form-group">
-		<label>Nombre</label>
+		<label><h5>Nombre</h5></label>
 		{{Form::text('nomb_categoria', $categoria->nomb_categoria, ['class' => 'form-control', 'placeholder' => 'Nombre de la categoría'])}}
 	</div>
 

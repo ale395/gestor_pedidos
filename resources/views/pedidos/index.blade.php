@@ -1,4 +1,4 @@
-@extends("layouts.app");
+ @extends("layouts.app");
 
 @section("content")
 <div class="big-padding text-center blue grey green-text">
@@ -8,25 +8,27 @@
  	<table class="table table-bordered"> 
  		<thead>
  			<tr>
- 				<td>ID Pedido</td>
+ 				<td>Num Pedido</td>
  				<td>Fecha Pedido</td>
  				<td>Cliente</td>
  				<td>Total</td>
+ 				<td>Estado</td>
  				<td>Acciones</td>
   			</tr>
  		</thead>
  		<tbody>
  			@foreach ($pedidos as $pedidos)
  				<tr>
- 					<td>{{ $pedidos->id_pedido }}</td>
+ 					<td>{{ $pedidos->num_pedido }}</td>
  					<td>{{ $pedidos->fecha }}</td>
  					<td>{{ $pedidos->cliente }}</td>
+ 					<td>{{ $pedidos->estado }}</td>
  					<td>{{ $pedidos->total }}</td>
  					<td> 
-						<a href="{{url('/pedidos/'.$pedidos->id_pedido.'/edit')}}" class="btn btn-primary btn-sm">Editar 
-						</a>
-						@include('pedidos.delete', ['pedidos' => $pedidos])
-  					</td>
+						<a href="{{url('/pedidos/'.$pedidos->id_pedido.'/edit')}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Modificar</a>
+
+						@include('pedidos.delete', ['pedidos' => $pedidos ])					
+  					</td> 
  				</tr>
  			@endforeach 
  		</tbody>

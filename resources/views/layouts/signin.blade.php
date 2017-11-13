@@ -34,7 +34,7 @@
 	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample01" aria-controls="navbarsExample01" aria-expanded="false" aria-label="Toggle navigation">
 	        <span class="navbar-toggler-icon"></span>
 	      </button>
-	      <a class="navbar-brand text-white" href="#">Gestor de Pedidos</a>
+	      <a class="navbar-brand text-white" href="{{ url('/home') }}">Gestor de Pedidos</a>
 	      <li class="dropdown">
             <a href="#" class="dropdown-toggle text-white" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }}<span class="caret"></span>
             </a>
@@ -50,7 +50,7 @@
 	      <div class="collapse navbar-collapse" id="navbarsExample01">
 	        <ul class="navbar-nav mr-auto">
 	          <li class="nav-item active">
-	            <a class="nav-link" href="#"><i class="fa fa-home" aria-hidden="true"></i> Inicio<span class="sr-only">(current)</span></a>
+	            <a class="nav-link" href="{{ url('/home') }}"><i class="fa fa-home" aria-hidden="true"></i> Inicio<span class="sr-only">(current)</span></a>
 	          </li>
 	          <li class="nav-item dropdown">
 	            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-users" aria-hidden="true"></i> Clientes</a>
@@ -79,7 +79,7 @@
 	            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o" aria-hidden="true"></i> Usuarios</a>
 	            <div class="dropdown-menu" aria-labelledby="dropdown01">
 	              <a class="dropdown-item" href="{{ url('/users') }}"><i class="fa fa-list" aria-hidden="true"></i> Lista de Usuarios</a>
-	              <a class="dropdown-item" href="#"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Registrar Usuario</a>
+	              <a class="dropdown-item" href="{{ route('register') }}"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Registrar Usuario</a>
 	            </div>
 	          </li>
 	        </ul>
@@ -130,6 +130,13 @@
     		$('#tableProductos').DataTable({
     			"language":{"url":"//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"}
     		});});
+    </script>
+    
+    <script>
+        $(document).ready(function(){
+            $('#tableUsuarios').DataTable({
+                "language":{"url":"//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"}
+            });});
     </script>
 
     <script>

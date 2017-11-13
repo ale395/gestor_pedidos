@@ -11,9 +11,9 @@
 	@endif
 
 	<div class="form-group">
-		<label>Nombre</label>
+		<label><h5>Nombre</h5></label>
 		{{Form::text('name', $user->name, ['class' => 'form-control', 'placeholder' => 'Nombre del usuario'])}}
-		<label>Correo Electrónico</label>
+		<label><h5>Correo Electrónico</h5></label>
 		{{Form::text('email', $user->email, ['class' => 'form-control', 'placeholder' => 'Correo electrónico'])}}
 	</div>
 
