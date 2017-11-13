@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Cliente;
-
+use Illuminate\Support\Facades\Auth;
 class ClientesControlador extends Controller
 {
     /**
@@ -27,7 +27,7 @@ class ClientesControlador extends Controller
      */
     public function create()
     {
-              $clientes = new Cliente;
+        $clientes = new Cliente;
         return view("clientes.create", ["clientes" => $clientes]);
     }
 
@@ -39,7 +39,19 @@ class ClientesControlador extends Controller
      */
     public function store(Request $request)
     {
-        //
+               $clientes = new Cliente;
+
+        $clientes->nombre = $request->nombre;
+        $clientes->apellido = $request->apellido;
+        $clientes->cedula = $request->cedula;
+        $clientes->telefono = $request->telefono;
+        $clientes->direccion = $request->direccion;
+        $clientes->correo = $request->correo;
+        if($clientes->save()){
+            return redirect("/clientes");
+        }else{
+            return view("clientes.create", ["clientes" => $clientes]);
+        } 
     }
 
     /**
@@ -61,7 +73,8 @@ class ClientesControlador extends Controller
      */
     public function edit($id)
     {
-        //
+            $clientes = Cliente::find($id);
+        return view("clientes.edit", ["clientes" => $clientes]);
     }
 
     /**
@@ -71,9 +84,24 @@ class ClientesControlador extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    
+
     public function update(Request $request, $id)
     {
-        //
+        
+        $clientes = Cliente::find($id);
+        $clientes->nombre = $request->nombre;
+        $clientes->apellido = $request->apellido;
+        $clientes->cedula = $request->cedula;
+        $clientes->telefono = $request->telefono;
+        $clientes->direccion = $request->direccion;
+        $clientes->correo = $request->correo;
+        if($clientes->save()){
+            return redirect("/clientes");
+        }else{
+            return view("clientes.edit", ["clientes" => $clientes]);
+        } 
     }
 
     /**

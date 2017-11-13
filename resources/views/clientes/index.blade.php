@@ -29,7 +29,13 @@
 						<td>{{ $client->telefono }}</td>
 						<td>{{ $client->direccion }}</td>
 						<td>{{ $client->correo }}</td>
-						<td class="size-acciones"></td>	
+						<td class="size-acciones">
+
+										<a href="{{url('/clientes/'.$client->id.'/edit')}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
+									@include('clientes.delete', ['clientes' => $client])
+			
+  					</td> 
+
 					</tr>
 				@endforeach
 			</tbody>

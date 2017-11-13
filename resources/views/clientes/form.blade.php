@@ -1,4 +1,4 @@
-{!!Form::open(['url' => $url, 'method' => $method])!!}
+{!!Form::open(['url' => $url, 'method' => $method ])!!}
 
 	@if (count($errors) > 0)
 		<div class="alert alert-danger">
@@ -27,7 +27,7 @@
 
 	<div class="form-group">
 		<label><h5>Telefono</h5></label>
-		{{Form::number('telefono', $clientes->telefono, ['class' => 'form-control', 'placeholder' => 'Nombre del cliente'])}}
+		{{Form::number('telefono', $clientes->telefono, ['class' => 'form-control', 'placeholder' => 'Telefono o celular del cliente'])}}
 	</div>
 
 	<div class="form-group">
