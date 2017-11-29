@@ -34,3 +34,12 @@ Route::resource('home', 'ChartCircleControlador');
 //Route::resource('home', 'ChartColumnControlador');
 
 Route::get('/categorias', ['as' => 'categorias', 'uses' => 'CategoriasControlador2@index']);
+
+Route::get('pdf', function() {
+    $pdf = PDF::loadview('vista');
+
+    return $pdf->download('archivo.pdf');
+}
+
+
+);
