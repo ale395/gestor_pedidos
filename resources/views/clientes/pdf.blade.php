@@ -5,6 +5,9 @@
 	<link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body>
+		<header class="table-text-center"><img src="{{asset('logo_tienda.png')}}" width="300" height="80"></header>
+	<div class="footer">Página Nro: <span class="pagenum"></span></div>
+	<div>
 	<h1 class="table-text-center">Lista de Clientes</h1>
 	<table class="table table-success table-bordered table-hover table-striped table-sm .table-responsive" id="tableClientes">
 			<thead class="thead-inverse center-block">
@@ -28,6 +31,7 @@
 				@endforeach
 			</tbody>
 		</table>
+	</div>
 </body>
 </html>
 
