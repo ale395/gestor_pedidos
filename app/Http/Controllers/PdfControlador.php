@@ -42,7 +42,7 @@ class PdfControlador extends Controller
     	$pdf = \App::make('dompdf.wrapper');
     	$pdf->loadHTML($view);
 
-    	if ($tipo == 1) {return $pdf->stream('reporte');}
+    	if ($tipo == 1) {return $pdf->stream('reporte.pdf');}
     	if ($tipo == 2) {return $pdf->download('reporte.pdf');}	
     }
 
