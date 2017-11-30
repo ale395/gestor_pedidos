@@ -25,23 +25,19 @@
 						</td>			
 					</tr>
 					<tr>
-						<td width="70%">Reporte de Productos</td>
-						<td width="30%">
-<<<<<<< HEAD
-							<a href="{{route('productos.pdf')}}" target="_blank"><button type="button" id="btn_ver" class="btn btn-primary">Ver</button></a>
-							<a href="{{route('descargarproductos.pdf')}}"><button type="button" id="btn_down" class="btn btn-primary">Descargar</button></a>		
-						</td>	
-											<tr>
-						<td width="70%">Reporte de Clientes</td>
-						<td width="30%">
-							<a href="{{route('clientes.pdf')}}" target="_blank"><button type="button" id="btn_ver" class="btn btn-primary">Ver</button></a>
-							<a href="{{route('descargarclientes.pdf')}}"><button type="button" id="btn_down" class="btn btn-primary">Descargar</button></a>		
-=======
+						<td width="80%">Reporte de Productos</td>
+						<td width="20%">
 							<a href="{{route('productos.pdf')}}" target="_blank"><button type="button" id="btn_ver" class="btn btn-primary btn-sm"><i class="fa fa-bars" aria-hidden="true"></i>
  Ver</button></a>
-							<a href="{{route('descargarproductos.pdf')}}"><button type="button" id="btn_down" class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true"></i>
- Descargar</button></a>		
->>>>>>> 1c2d423af900017a64960ca7075373703a9eb2cd
+							<a href="{{route('descargarproductos.pdf')}}"><button type="button" id="btn_down" class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true"></i> Descargar</button></a>			
+						</td>	
+											<tr>
+						<td width="80%">Reporte de Clientes</td>
+						<td width="20%">
+							<a href="{{route('clientes.pdf')}}" target="_blank"><button type="button" id="btn_ver" class="btn btn-primary btn-sm"><i class="fa fa-bars" aria-hidden="true"></i>
+ Ver</button></a>
+							<a href="{{route('descargarclientes.pdf')}}"><button type="button" id="btn_down" class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true"></i>
+ Descargar</button></a>
 						</td>			
 					</tr>
 				</tbody>
