@@ -8,6 +8,8 @@ use App\Cliente;
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\CrearClientesRequest;
+use Barryvdh\DomPDF\Facade as PDF;
+
 class ClientesControlador extends Controller
 {
     /**
@@ -117,5 +119,21 @@ class ClientesControlador extends Controller
     {
         Cliente::destroy($id);
         return redirect('/clientes');
+    }
+
+    public function pdf()
+    {
+        $clientes = Cliente::all();
+        $view = view('clientes.pdf', compact('clientes'));
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream('Listado_Clientes.pdf');
+    }
+
+    public function descargarPdf()
+    {
+        $clientes = Cliente::all();
+        $pdf = PDF::loadView('clientes.pdf', compact('clientes'));
+        return $pdf->download('Listado_Clientes.pdf');
     }
 }

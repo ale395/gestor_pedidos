@@ -26,6 +26,12 @@
 						<td width="30%">
 							<a href="{{route('productos.pdf')}}" target="_blank"><button type="button" id="btn_ver" class="btn btn-primary">Ver</button></a>
 							<a href="{{route('descargarproductos.pdf')}}"><button type="button" id="btn_down" class="btn btn-primary">Descargar</button></a>		
+						</td>	
+											<tr>
+						<td width="70%">Reporte de Clientes</td>
+						<td width="30%">
+							<a href="{{route('clientes.pdf')}}" target="_blank"><button type="button" id="btn_ver" class="btn btn-primary">Ver</button></a>
+							<a href="{{route('descargarclientes.pdf')}}"><button type="button" id="btn_down" class="btn btn-primary">Descargar</button></a>		
 						</td>			
 					</tr>
 				</tbody>

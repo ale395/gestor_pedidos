@@ -9,7 +9,7 @@
 		<table class="table table-success table-bordered table-hover table-striped table-sm .table-responsive" id="tableClientes">
 			<thead class="thead-inverse center-block">
 				<tr>
-					<th class="size-id table-text-center">Id</th>
+					<!--th class="size-id table-text-center">Id</th-->
 					<th class="table-text-center">Nombre</th>
 					<th class="table-text-center">Apellido</th>
 					<th class="table-text-center">Nro de Documento</th>
@@ -22,7 +22,7 @@
 			<tbody>
 				@foreach ($clientes as $client)
 					<tr>
-						<td class="size-id table-text-center">{{ $client->id}}</td>
+						<!--td class="size-id table-text-center">{{ $client->id}}</td-->
 						<td>{{ $client->nombre }}</td>
 						<td>{{ $client->apellido }}</td>
 						<td>{{ $client->cedula }}</td>

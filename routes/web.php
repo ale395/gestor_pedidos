@@ -41,6 +41,10 @@ Route::get('productos.pdf', 'ProductosControlador@pdf')->name('productos.pdf');
 
 Route::get('descargarproductos.pdf', 'ProductosControlador@descargarPdf')->name('descargarproductos.pdf');
 
+Route::get('clientes.pdf', 'ClientesControlador@pdf')->name('clientes.pdf');
+
+Route::get('descargarclientes.pdf', 'ClientesControlador@descargarPdf')->name('descargarclientes.pdf');
+
 Route::resource('reportes', 'PdfControlador');
 
 Route::get('crear_reporte_pedidos/{tipo}', 'PdfControlador@crear_reporte_pedidos');
