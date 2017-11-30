@@ -7,29 +7,35 @@
 </div>
 <div class="panel panel-primary">
 	<div class="panel-body">
-		<div class ="col-lg-12 col-sm-12 col-md-12 col-xs-12">	
-			<table id="detalles" class="table table-stripped table-bordered table-condensed table-hover">
-				<thead>
-					<th>Nombre Reporte</th>
-					<th>Acciones</th>
+		<div class ="col-lg-12 col-sm-12 col-md-12 col-xs-12">
+		<div class="container"></div>
+			<table id="detalles" class="table table-success table-bordered table-hover table-striped table-sm .table-responsive">
+				<thead class="thead-inverse center-block">
+					<th class="table-text-center">Nombre Reporte</th>
+					<th class="table-text-center">Acciones</th>
 				</thead>
 				<tbody>
 					<tr>
-						<td width="70%">Reporte de Pedidos</td>
-						<td width="30%">
-							<a href="crear_reporte_pedidos/1"><button type="button" id="btn_ver" class="btn btn-primary">Ver</button></a>
-							<a href="crear_reporte_pedidos/2"><button type="button" id="btn_down" class="btn btn-primary">Descargar</button></a>		
+						<td width="80%">Reporte de Pedidos</td>
+						<td width="20%">
+							<a href="crear_reporte_pedidos/1"><button type="button" id="btn_ver" class="btn btn-primary btn-sm"><i class="fa fa-bars" aria-hidden="true"></i>
+ Ver</button></a>
+							<a href="crear_reporte_pedidos/2"><button type="button" id="btn_down" class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true"></i>
+ Descargar</button></a>		
 						</td>			
 					</tr>
 					<tr>
 						<td width="70%">Reporte de Productos</td>
 						<td width="30%">
-							<a href="{{route('productos.pdf')}}" target="_blank"><button type="button" id="btn_ver" class="btn btn-primary">Ver</button></a>
-							<a href="{{route('descargarproductos.pdf')}}"><button type="button" id="btn_down" class="btn btn-primary">Descargar</button></a>		
+							<a href="{{route('productos.pdf')}}" target="_blank"><button type="button" id="btn_ver" class="btn btn-primary btn-sm"><i class="fa fa-bars" aria-hidden="true"></i>
+ Ver</button></a>
+							<a href="{{route('descargarproductos.pdf')}}"><button type="button" id="btn_down" class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true"></i>
+ Descargar</button></a>		
 						</td>			
 					</tr>
 				</tbody>
 			</table>
+		</div>
 		</div>
 	</div>
 </div>		
