@@ -84,12 +84,9 @@
 	          </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-o" aria-hidden="true"></i> Reportes</a>
-                <!--
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                  <a class="dropdown-item" href="{{ url('/users') }}"><i class="fa fa-list" aria-hidden="true"></i> Lista de Usuarios</a>
-                  <a class="dropdown-item" href="{{ route('register') }}"><i class="fa fa-plus-square-o" aria-hidden="true"></i> Registrar Usuario</a>
+                  <a class="dropdown-item" href="{{ url('/reportes') }}"><i class="fa fa-list" aria-hidden="true"></i> Lista de Reportes</a>
                 </div>
-                -->
               </li>
 	        </ul>
 	      </div>
