@@ -37,6 +37,8 @@ Route::get('/categorias', ['as' => 'categorias', 'uses' => 'CategoriasControlado
 
 Route::resource('reportes', 'PdfControlador');
 
+Route::get('crear_reporte_pedidos/{id}', 'PdfControlador@crear_reporte_pedidos');
+
 /*
 Route::get('pdf', function() {
     $pdf = PDF::loadview('vista');

@@ -9,6 +9,7 @@ El controlador del visualizador de PDF!!!!
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Pedido;
 
 class PdfControlador extends Controller
@@ -36,7 +37,7 @@ class PdfControlador extends Controller
     */	
     	$data = $datos;
     	$date = date('Y-m-d');
-    	$view = View::make($vistaurl, compact('data', 'date'))->render;
+    	$view = \View::make($vistaurl, compact('data', 'date'))->render;
     	$pdf = \App::make('dompdf.wrapper');
     	$pdf->loadHTML($view);
 
