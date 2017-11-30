@@ -28,6 +28,11 @@
 </div>		
 @endsection
 
+@push('scripts')
+<script>
+	
+</script>
+
 <!--
 <div class="container"> 
  	<table class="table table-success table-bordered table-hover table-striped table-sm .table-responsive" id="tablePedidos"> 
