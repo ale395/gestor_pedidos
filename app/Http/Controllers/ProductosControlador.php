@@ -9,6 +9,7 @@ use App\Producto;
 use App\Categoria;
 
 use App\Http\Requests\CrearProductosRequest;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class ProductosControlador extends Controller
 {
@@ -115,5 +116,21 @@ class ProductosControlador extends Controller
     {
         Producto::destroy($id);
         return redirect('/productos');
+    }
+
+    public function pdf()
+    {
+        $productos = Producto::all();
+        $view = view('productos.pdf', compact('productos'));
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        return $pdf->stream('Listado_Productos.pdf');
+    }
+
+    public function descargarPdf()
+    {
+        $productos = Producto::all();
+        $pdf = PDF::loadView('productos.pdf', compact('productos'));
+        return $pdf->download('Listado_Productos.pdf');
     }
 }

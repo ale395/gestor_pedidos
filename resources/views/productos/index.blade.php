@@ -27,7 +27,6 @@
 							
 								<a href="{{url('/productos/'.$product->id.'/edit')}}" class="btn btn-primary btn-sm"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar</a>
 								@include('productos.delete', ['producto' => $product])
-							
 						</td>
 					</tr>
 				@endforeach

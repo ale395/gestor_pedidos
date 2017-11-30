@@ -21,6 +21,13 @@
 							<a href="crear_reporte_pedidos/1"><button type="button" id="btn_down" class="btn btn-primary">Descargar</button></a>		
 						</td>			
 					</tr>
+					<tr>
+						<td width="70%">Reporte de Productos</td>
+						<td width="30%">
+							<a href="{{route('productos.pdf')}}" target="_blank"><button type="button" id="btn_ver" class="btn btn-primary">Ver</button></a>
+							<a href="{{route('descargarproductos.pdf')}}"><button type="button" id="btn_down" class="btn btn-primary">Descargar</button></a>		
+						</td>			
+					</tr>
 				</tbody>
 			</table>
 		</div>

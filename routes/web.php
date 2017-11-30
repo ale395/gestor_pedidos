@@ -25,6 +25,8 @@ Route::resource('productos', 'ProductosControlador');
 
 Route::resource('categorias', 'CategoriasControlador');
 
+Route::resource('reportes', 'PdfControlador');
+
 Route::resource('users', 'UsersControlador');
 
 Route::resource('pedidos', 'PedidoControlador');
@@ -35,14 +37,6 @@ Route::resource('home', 'ChartCircleControlador');
 
 Route::get('/categorias', ['as' => 'categorias', 'uses' => 'CategoriasControlador2@index']);
 
-Route::resource('reportes', 'PdfControlador');
+Route::get('productos.pdf', 'ProductosControlador@pdf')->name('productos.pdf');
 
-Route::get('crear_reporte_pedidos/{id}', 'PdfControlador@crear_reporte_pedidos');
-
-/*
-Route::get('pdf', function() {
-    $pdf = PDF::loadview('vista');
-
-    return $pdf->download('archivo.pdf');
-}
-*/
+Route::get('descargarproductos.pdf', 'ProductosControlador@descargarPdf')->name('descargarproductos.pdf');
