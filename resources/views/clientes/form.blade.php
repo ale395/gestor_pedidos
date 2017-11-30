@@ -39,6 +39,11 @@
 		<label><h5>Correo</h5></label>
 		{{Form::text('correo', $clientes->correo, ['class' => 'form-control', 'placeholder' => 'Correo del cliente'])}}
 	</div>
+		<div class="form-group">
+		<label><h5>Cuidad</h5></label>
+		{{Form::text('ciudad', $clientes->ciudad, ['class' => 'form-control', 'placeholder' => 'Cuidad de donde proviene'])}}
+	</div>
+
 
 	<div class="form-group text-right">
 		<a href="{{url('/clientes')}}">Regresar a clientes</a>

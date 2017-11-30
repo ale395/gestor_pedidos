@@ -127,7 +127,7 @@
 
 		if(id_producto!="" && cantidad!="" && cantidad>0 && precio_unitario!="")
 		{
-			subtotal[cont] = cantidad*precio_unitario;
+			subtotal[cont] = (cantidad*precio_unitario)*2;
 			total=total+subtotal[cont];
 
 			//solo Dios sabe que hace esto, che ajaponte
