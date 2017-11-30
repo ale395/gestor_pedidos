@@ -18,7 +18,7 @@
 					<tr>
 						<td width="80%">Reporte de Pedidos</td>
 						<td width="20%">
-							<a href="crear_reporte_pedidos/1"><button type="button" id="btn_ver" class="btn btn-primary btn-sm"><i class="fa fa-bars" aria-hidden="true"></i>
+							<a href="crear_reporte_pedidos/1" target="_blank"><button type="button" id="btn_ver" class="btn btn-primary btn-sm"><i class="fa fa-bars" aria-hidden="true"></i>
  Ver</button></a>
 							<a href="crear_reporte_pedidos/2"><button type="button" id="btn_down" class="btn btn-success btn-sm"><i class="fa fa-download" aria-hidden="true"></i>
  Descargar</button></a>		

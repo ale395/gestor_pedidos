@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Listado de Productos</title>
+  <title>Listado de Pedidos</title>
   <link rel="stylesheet" type="text/css" href="css/app.css">
 </head>
 <body>
+  <header class="table-text-center"><img src="{{asset('logo_tienda.png')}}" width="300" height="80"></header>
+  <div class="footer">Página Nro: <span class="pagenum"></span></div>
   <h1 class="table-text-center">Lista de Pedidos</h1>
   <table class="table table-success table-bordered table-hover table-striped table-sm .table-responsive" id="tableProductos">
       <thead class="thead-inverse center-block">
