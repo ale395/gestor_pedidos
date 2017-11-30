@@ -18,7 +18,7 @@
 						<td width="70%">Reporte de Pedidos</td>
 						<td width="30%">
 							<a href="crear_reporte_pedidos/1"><button type="button" id="btn_ver" class="btn btn-primary">Ver</button></a>
-							<a href="crear_reporte_pedidos/1"><button type="button" id="btn_down" class="btn btn-primary">Descargar</button></a>		
+							<a href="crear_reporte_pedidos/2"><button type="button" id="btn_down" class="btn btn-primary">Descargar</button></a>		
 						</td>			
 					</tr>
 					<tr>
