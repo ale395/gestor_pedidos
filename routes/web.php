@@ -25,6 +25,8 @@ Route::resource('productos', 'ProductosControlador');
 
 Route::resource('categorias', 'CategoriasControlador');
 
+Route::resource('reportes', 'PdfControlador');
+
 Route::resource('users', 'UsersControlador');
 
 Route::resource('pedidos', 'PedidoControlador');
@@ -36,3 +38,5 @@ Route::resource('home', 'ChartCircleControlador');
 Route::get('/categorias', ['as' => 'categorias', 'uses' => 'CategoriasControlador2@index']);
 
 Route::get('productos.pdf', 'ProductosControlador@pdf')->name('productos.pdf');
+
+Route::get('descargarproductos.pdf', 'ProductosControlador@descargarPdf')->name('descargarproductos.pdf');

@@ -124,7 +124,13 @@ class ProductosControlador extends Controller
         $view = view('productos.pdf', compact('productos'));
         $pdf = \App::make('dompdf.wrapper');
         $pdf->loadHTML($view);
-        //$pdf = PDF::loadView('productos.pdf', compact('productos'));
-        return $pdf->stream('listado');
+        return $pdf->stream('Listado_Productos.pdf');
+    }
+
+    public function descargarPdf()
+    {
+        $productos = Producto::all();
+        $pdf = PDF::loadView('productos.pdf', compact('productos'));
+        return $pdf->download('Listado_Productos.pdf');
     }
 }
