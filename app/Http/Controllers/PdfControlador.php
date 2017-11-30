@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Dompdf\Dompdf;
 use App\Pedido;
 
 class PdfControlador extends Controller
@@ -41,8 +42,8 @@ class PdfControlador extends Controller
     	$pdf = \App::make('dompdf.wrapper');
     	$pdf->loadHTML($view);
 
-    	if ($tipo == 1) {stream('reporte');}
-    	if ($tipo == 2) {download('reporte.pdf');}	
+    	if ($tipo == 1) {return $pdf->stream('reporte');}
+    	if ($tipo == 2) {return $pdf->download('reporte.pdf');}	
     }
 
     //a partir de aca, creamos las consultas para los reportes, 
@@ -50,7 +51,7 @@ class PdfControlador extends Controller
 	public function crear_reporte_pedidos ($tipo) 
 	{
 		//el nombre de la vista
-		$vistaurl="pdf.reporte_pedidos";
+		$vistaurl="pdf.listadopedidos";
 		//seleccionamos los datos
 		$pedidos = Pedido::all();
 
