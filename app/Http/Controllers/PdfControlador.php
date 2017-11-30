@@ -37,10 +37,10 @@ class PdfControlador extends Controller
 	* tipo 2 = Descargamos el pdf.
     */	
     	$data = $datos;
-    	$date = date('Y-m-d');
-    	$view = \View::make($vistaurl, compact('data', 'date'))->render;
+    	$view = \View::make($vistaurl, compact('data'));
     	$pdf = \App::make('dompdf.wrapper');
     	$pdf->loadHTML($view);
+    	$pdf->setPaper('A4');
 
     	if ($tipo == 1) {return $pdf->stream('listadopedidos.pdf');}
     	if ($tipo == 2) {return $pdf->download('listadopedidos.pdf');}	
